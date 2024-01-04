@@ -1,0 +1,52 @@
+{%extends "navbar.html"%}{%block navbar%}
+{% include "navbar.html" %}
+<form class="myform" method="post" action="{% url "save_contact" %}">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" name="name">
+    <br>
+    <label for="name">Email:</label>
+    <br>
+    <input type="email" name="email">
+    <br>
+    <label for="country">Country:</label>
+    <br>
+    <input type="text" name="country">
+    <br>
+    <label for="problem">Problem:-</label>
+    <br>
+    <textarea id="text3"name="problem" rows="4" cols="50"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+<style>
+    body{
+        overflow-x:hidden;
+    }
+    label{
+        font-size:20px;
+    }
+    .myform{
+        position:relative;
+        top:130px;
+        left:528px;
+    }
+    .myform input{
+        width: 499px;
+        height: 34px;
+    }
+    textarea{
+        width: 499px;
+    }
+    .myform button{
+        border-radius:21px;
+        position: relative;
+        top: 144px;
+        left: 30px;
+        width: 455px;
+        height: 50px;
+        background:linear-gradient(180deg, red, yellow);
+    }
+</style>
+{%endblock%}

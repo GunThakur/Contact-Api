@@ -1,0 +1,46 @@
+{%extends "navbar.html"%}{%block navbar%}
+{% include "navbar.html" %}
+<h2 style="color:white; font-size: 40px; font-family:Algerian;"> About us </h2>
+{%load static%}
+<div class="mydiv">
+  <br>
+<img id="myimg"src="{% static "channels4_profile.jpg" %}">
+</div>
+<br>
+<br>
+<br>
+<h2>This Site is made up of django rest framework. Means api. My name is
+Ananya Thakur and I built this website. I hope you like this small blog
+website. And if you do then <a href="https://www.youtube.com/@mycontinuousgaming">Subscribe
+  to my youtube channel.
+</a>
+And share this small blog website with<br> your all friends.</h2>
+<style>
+  a{
+    color:#20849b;
+  }
+  body{
+    overflow-x:hidden;
+  }
+  #myimg{
+    display:block;
+    border: 2px solid #45ddff;
+    position: relative;
+    left: 653px;
+    top: 31px;
+    width: 222px;
+  }
+  div {
+    height:208px;
+    background-color: rgb(106 55 213);
+  }
+  h2{
+    position:relative;
+    top:45px;
+    left:280px;
+    width:955px;
+    text-align:center;
+    color:rgb(47, 46, 46);
+  }
+</style>
+{%endblock%}

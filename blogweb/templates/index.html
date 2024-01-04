@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "base.html" %}
+  {% for post in post_list %}
+    {% with image=post.image %}
+      <br>
+      <br>
+      <div class="card" id="card-{{post.id}}">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <hr>
+          <p class="card-text">
+            {{ post.content|linebreaksbr|default:""|safe|slice:'0:205' }}...
+          </p>
+          <a href="{% url 'post_detail' slug=post.slug %}" class="btn btn-primary">Learn more</a>
+        </div>
+      </div>
+    {% endwith %}
+  {% endfor %}
+  <br>
+  <br>
+  <style>
+    .card {
+      bottom: 323px;
+      width: 548px;
+      border: none;
+      height: 377px;
+      margin-left: 89px;
+    }
+    .card img{
+      height: 293px;
+      width: 533px;
+    }
+    #card-3{
+      position:relative;
+      bottom:220px;
+    }
+    #card-2{
+      position:relative;
+      bottom:120px;
+    }
+    #card-1{
+      position:relative;
+      bottom:20px;
+    }
+    body {
+      overflow-x: hidden;
+    }
+    .card a:hover{
+      background-color: rgb(136, 0, 255);
+      border: 1px solid rgb(136, 0, 255);
+    }
+  </style>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+   <div class="alert alert-success" role="alert" style="position: relative; bottom: 13px; text-align: center; height: 88px; font-size: 22px;">
+    Thanks for watching this Website
+  </div>
+  <footer class="py-3 bg-grey">
+    <p class="m-0 text-dark text-center">Copyright &copy; Ananya Thakur</p>
+  </footer>
+{% endblock %}

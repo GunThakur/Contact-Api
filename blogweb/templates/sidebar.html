@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" style="color:rgb(113, 177, 245)">
+        <title>Document</title>
+    </head>
+
+    <body>
+        
+        <style>
+            .card{
+                box-shadow: 0 16px 48px #E3E7EB;
+            }
+            .mycard{
+                position: relative;
+                left: 516px;
+                width: 388px;
+                bottom: 33px;
+              }
+        </style>
+        {% block sidebar %}
+        
+        <!-- Sidebar Widgets Column -->
+        <br>
+        <div class="mycard">
+            <div class="col-md-4 float-right ">
+            <div class="mycard my-4">
+                    <h5 class="mycard-header">About Us</h5>
+                    <hr>
+                <div class="mycard-body">
+                    <p class="mycard-text"> This awesome blog website made of up of django. I hope you like it and if you
+                        do then rate our website. Click on about us to know more!!.
+                    </p>
+                    <a href="{% url "about_us" %}"
+                       class="btn btn-danger">Know more!</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        {% endblock sidebar %}
+    </body>
+
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container" style="justify-content:center;">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="Your Image">
+        <br>
+        <br>
+        <h1><pre>Title:-</pre>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <hr>
+        <h3><pre>Author:-</pre>{{ post.author }}</h3>
+        <hr>
+        <h3><pre>Date & Time:-</pre>{{ post.created_on }}</h3>
+        <hr>
+        <h4 class="card-text "><pre>Details:-</pre>{{ object.content | safe }}</h4>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+  </div>
+</div>
+<style>
+  body{
+    overflow-x:hidden;
+    text-align:center;
+    position:relative;
+    left:239px;
+  }
+  pre{
+    font-weight:50;
+    display:inline;
+}
+  h4 pre{
+    font-weight:190;
+    font-size:25px;
+    display:inline;
+}
+h4{
+  font-size:23px;
+  font-weight:400;
+}
+
+</style>
+
+{% endblock content %}

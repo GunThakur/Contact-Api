@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wild Forest</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'Side Logo.png' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+  </head>
+  {% block content%} 
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        {% load static %}
+        <a class="navbar-brand" href=""><img src="{%static "Side Logo.png"%}"></a>
+        <a href=""><h3 style="color: #efc067;">Wild Forest</h3></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white font-weight-bold" aria-current="page" href="{% url "home" %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white font-weight-bold" href="{% url "about_us" %}" >About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white font-weight-bold" href="{% url "policy" %}" >Policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white font-weight-bold" href="./contact/" >Contact</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="mybg">
+      {% load static %}
+    <img class="myimg"src="{% static "nature.png" %}">
+    <h1>Welcome to my Wild Forest.com</h1>
+    <br>
+    <p> Explore all pages </p>
+    </div>
+    <style>
+      a{
+        text-decoration:none;
+      }
+      nav h3{
+        position: relative;
+        top: 3px;
+        right: 14px;
+      }
+      nav img{
+        height:56px;
+        width:58px;
+      }
+      .mybg h1{
+        position: relative;
+        bottom: 516px;
+        color: white;
+        left: 518px;
+        opacity: 0.7;
+    }
+      .mybg p{
+        position: relative;
+        bottom: 538px;
+        color: white;
+        left: 674px;
+        font-size: 30px;
+        opacity: 0.7;
+  
+    }
+      .myimg{
+        width:100%;
+        height:728px;
+      }
+      nav{
+        height:65px;
+        font-size:20px;
+      }
+    </style>
+  </body>
+  {% block sidebar %}
+  {% include "sidebar.html" %}
+{% endblock %}
+    {% endblock %}
+</html>
