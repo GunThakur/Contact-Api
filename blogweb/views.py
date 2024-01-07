@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Post, contact
 from rest_framework import viewsets
 from .serializers import contactserializer
+import requests
 # Create your views here.
 
 
@@ -41,3 +42,8 @@ def policy(request):
 class contactviewset(viewsets.ModelViewSet):
     queryset = contact.objects.all()
     serializer_class = contactserializer
+
+
+def display_data(request):
+    response = request.get('http://localhost:7000/blogweb/contact/').json()
+    return render(request, 'search.html', {'respose': response})
