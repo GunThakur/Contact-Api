@@ -4,6 +4,8 @@ from .models import Post, contact
 from rest_framework import viewsets
 from .serializers import contactserializer
 import requests
+from .forms import SearchForm
+
 # Create your views here.
 
 
@@ -45,5 +47,20 @@ class contactviewset(viewsets.ModelViewSet):
 
 
 def display_data(request):
-    response = request.get('http://localhost:7000/blogweb/contact/').json()
-    return render(request, 'search.html', {'respose': response})
+    api_url = 'http://localhost:7000/blogweb/contact/'
+    response = requests.get(api_url).json()
+    return render(request, 'search.html', {'response': response})
+
+
+# def search(request):
+#     api_url = 'http://localhost:7000/blogweb/contact/'
+#     form = SearchForm(request.GET)
+#     queryset = requests.get(api_url).json()
+#     if form.is_valid():
+#         search_query = form.cleaned_data['search_query']
+#         queryset = queryset.filter(name__icontains=search_query)
+#     context = {
+#         'form': form,
+#         'results': queryset,
+#     }
+#     return render(request, 'search.html', context)
