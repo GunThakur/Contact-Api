@@ -13,7 +13,7 @@ urlpatterns = [
     path('', include(router.urls), name="contact"),
     path('about_us/', views.about_us, name='about_us'),
     path('policy/', views.policy, name='policy'),
-    path('search/', views.display_data, name='search'),
+    path('search/', views.search.as_view(), name='search'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 ]
 

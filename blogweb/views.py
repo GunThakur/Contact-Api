@@ -1,5 +1,10 @@
+import django_filters
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
 from django.shortcuts import render
 from django.views import generic
+from rest_framework import generics
 from .models import Post, contact
 from rest_framework import viewsets
 from .serializers import contactserializer
@@ -52,15 +57,8 @@ def display_data(request):
     return render(request, 'search.html', {'response': response})
 
 
-# def search(request):
-#     api_url = 'http://localhost:7000/blogweb/contact/'
-#     form = SearchForm(request.GET)
-#     queryset = requests.get(api_url).json()
-#     if form.is_valid():
-#         search_query = form.cleaned_data['search_query']
-#         queryset = queryset.filter(name__icontains=search_query)
-#     context = {
-#         'form': form,
-#         'results': queryset,
-#     }
-#     return render(request, 'search.html', context)
+class search(generics.ListAPIView):
+    queryset = contact.objects.all()
+    serializer_class = contactserializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filter_fields = ('name')
