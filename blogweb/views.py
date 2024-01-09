@@ -52,12 +52,6 @@ class contactviewset(viewsets.ModelViewSet):
     serializer_class = contactserializer
 
 
-def display_data(request):
-    api_url = 'http://localhost:7000/blogweb/contact/'
-    response = requests.get(api_url).json()
-    return render(request, 'search.html', {'response': response})
-
-
 class search(generics.ListAPIView):
     queryset = contact.objects.all()
     serializer_class = contactserializer
