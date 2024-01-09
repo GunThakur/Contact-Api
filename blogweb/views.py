@@ -1,3 +1,4 @@
+from rest_framework import filters
 import django_filters
 from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -60,5 +61,5 @@ def display_data(request):
 class search(generics.ListAPIView):
     queryset = contact.objects.all()
     serializer_class = contactserializer
-    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filter_fields = ('name')
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
